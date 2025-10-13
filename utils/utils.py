@@ -38,3 +38,13 @@ def set_seed(seed: int = 19) -> None:
     except Exception:
         pass
 
+
+def to_user_item_matrix(ratings_df: pd.DataFrame, user_col: str, item_col: str, rating_col: str):
+    users = ratings_df[user_col].astype("category")
+    items = ratings_df[item_col].astype("category")
+    mat = np.zeros((users.cat.categories.size, items.cat.categories.size), dtype=float)
+    mat[:, :] = np.nan
+    mat[users.cat.codes, items.cat.codes] = ratings_df[rating_col].values
+    return mat, users.cat.categories.tolist(), items.cat.categories.tolist()
+
+
