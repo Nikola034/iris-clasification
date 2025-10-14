@@ -32,4 +32,4 @@ class EvalConfig:
 @dataclass(frozen=True)
 class SystemConfig:
     seed: int = 19
-    device: str = "cuda"  # "cuda" or "cpu"
+    device: str = "cuda"  # "cuda" - 5h or "cpu" 8+h?
