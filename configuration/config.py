@@ -5,6 +5,7 @@ from pathlib import Path
 @dataclass(frozen=True)
 class Paths:
     DATA_DIR: Path = Path("./data")
+    MODELS_DIR: Path = Path("./checkpoints")
     DATASET_PATH: Path = DATA_DIR / "movie_metadata_with_reviews.csv"
 
 
